@@ -1,3 +1,10 @@
+## Live Demo
+The project is deployed here:  
+https://SidK2301.github.io/social_content_dashboard/
+
+
+
+
 # Social Content Dashboard
 
 A demo full-stack web application built with Django + PostgreSQL (backend) and React (frontend).  
