@@ -26,12 +26,12 @@ function App() {
 
   // Fetch posts and keywords
   const fetchData = () => {
-    fetch("http://127.0.0.1:8000/api/posts/")
+    fetch("https://social-content-dashboard.onrender.com/api/posts/")
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .catch((err) => console.error("Error fetching posts:", err));
 
-    fetch("http://127.0.0.1:8000/api/keywords/")
+    fetch("https://social-content-dashboard.onrender.com/api/keywords/")
       .then((res) => res.json())
       .then((data) =>
         setKeywords(data.map((k) => ({ value: k.name, label: k.name })))
@@ -55,7 +55,7 @@ function App() {
 
     if (editingPost) {
       // Update post
-      fetch(`http://127.0.0.1:8000/api/posts/${editingPost.id}/`, {
+      fetch(`https://social-content-dashboard.onrender.com/api/posts/${editingPost.id}/`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPost),
@@ -68,7 +68,7 @@ function App() {
         .catch((err) => console.error("Error updating post:", err));
     } else {
       // Create post
-      fetch("http://127.0.0.1:8000/api/posts/", {
+      fetch("https://social-content-dashboard.onrender.com/api/posts/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPost),
@@ -84,7 +84,7 @@ function App() {
 
   // Delete a post
   const handleDelete = (id) => {
-    fetch(`http://127.0.0.1:8000/api/posts/${id}/`, { method: "DELETE" })
+    fetch(`https://social-content-dashboard.onrender.com/api/posts/${id}/`, { method: "DELETE" })
       .then(() => setPosts(posts.filter((p) => p.id !== id)))
       .catch((err) => console.error("Error deleting post:", err));
   };
@@ -111,7 +111,7 @@ function App() {
 
   // Import external posts
   const handleImport = () => {
-    fetch("http://127.0.0.1:8000/api/fetch-external-posts/", {
+    fetch("https://social-content-dashboard.onrender.com/api/fetch-external-posts/", {
       method: "POST",
     })
       .then((res) => res.json())
